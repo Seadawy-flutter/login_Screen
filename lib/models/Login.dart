@@ -1,9 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:login_screen/models/sign_up.dart';
 
-class Login extends StatelessWidget {
+import 'Messeges_Screen.dart';
+
+class Login extends StatefulWidget {
   const Login({super.key});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +69,14 @@ class Login extends StatelessWidget {
                     ),
 
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MessegesScreen(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(0),
@@ -110,7 +125,10 @@ class Login extends StatelessWidget {
                           style: TextStyle(color: Colors.purple, fontWeight: FontWeight.bold),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              // وظيفة عند الضغط على "Sign Up"
+                            Navigator.push(context, MaterialPageRoute(builder:
+                                (context) => SignUpScreen()
+                            ),
+                            );
                             },
                         ),
                       ],
